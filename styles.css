@@ -69,11 +69,10 @@ a {
 }
 
 .page-hero {
-  display: grid;
-  place-items: center;
-  min-height: 58svh;
-  padding: 112px 22px 72px;
-  text-align: center;
+  width: min(1040px, calc(100% - 44px));
+  margin: 0 auto;
+  padding: 92px 0 42px;
+  text-align: left;
 }
 
 .kicker {
@@ -100,6 +99,12 @@ h1 {
   letter-spacing: 0;
 }
 
+.page-hero h1 {
+  margin-bottom: 14px;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.08;
+}
+
 .hero-text {
   max-width: 720px;
   margin: 0 auto;
@@ -107,6 +112,13 @@ h1 {
   font-size: clamp(21px, 3vw, 28px);
   font-weight: 500;
   line-height: 1.45;
+}
+
+.page-hero .hero-text {
+  max-width: 680px;
+  margin: 0;
+  font-size: clamp(18px, 2vw, 22px);
+  line-height: 1.5;
 }
 
 .statement {
@@ -323,30 +335,30 @@ a.product-card:hover {
 
 .case-row {
   display: grid;
-  grid-template-columns: minmax(260px, 0.78fr) 1fr;
-  align-items: end;
-  gap: 48px;
-  min-height: 360px;
-  margin-bottom: 14px;
-  padding: 54px 56px;
+  grid-template-columns: minmax(220px, 0.62fr) 1fr;
+  align-items: start;
+  gap: 36px;
+  min-height: auto;
+  margin-bottom: 1px;
+  padding: 30px 34px;
   background: #fff;
 }
 
 .case-row h2,
 .note-board h2 {
   margin-bottom: 0;
-  font-size: clamp(38px, 6vw, 68px);
-  font-weight: 700;
-  line-height: 1.04;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 650;
+  line-height: 1.16;
   letter-spacing: 0;
 }
 
 .case-row > p {
   margin: 0;
   color: var(--muted);
-  font-size: clamp(20px, 2.6vw, 28px);
-  font-weight: 500;
-  line-height: 1.45;
+  font-size: 17px;
+  font-weight: 450;
+  line-height: 1.6;
 }
 
 .page-story {
@@ -369,7 +381,7 @@ a.product-card:hover {
 }
 
 .note-board h2 {
-  font-size: clamp(30px, 4vw, 46px);
+  font-size: clamp(24px, 3vw, 34px);
 }
 
 @media (max-width: 900px) {
@@ -394,8 +406,7 @@ a.product-card:hover {
   }
 
   .case-row {
-    min-height: 280px;
-    padding: 44px 28px;
+    padding: 28px;
   }
 
   .note-board article {
@@ -418,7 +429,6 @@ a.product-card:hover {
   }
 
   .page-hero {
-    min-height: 52svh;
     padding-top: 86px;
   }
 
