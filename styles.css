@@ -895,12 +895,6 @@ a.product-card:hover {
 }
 
 @media (max-width: 340px) {
-  .brand {
-    max-width: 36px;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
   .nav {
     gap: 7px;
   }

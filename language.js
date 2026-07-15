@@ -1,6 +1,7 @@
 const translations = {
   zh: {
     pageTitle: "Craig Young | 职业作品集",
+    brandName: "读读说明书",
     homeLabel: "返回首页",
     navLabel: "主导航",
     navExperiences: "职业经历",
@@ -66,6 +67,7 @@ const translations = {
   },
   en: {
     pageTitle: "Craig Young | Career Portfolio",
+    brandName: "Craig Young",
     homeLabel: "Back to home",
     navLabel: "Primary navigation",
     navExperiences: "Career",
