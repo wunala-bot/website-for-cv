@@ -3,30 +3,32 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Career Portfolio</title>
+    <title>Craig Young | 职业作品集</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="language.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Back to home">Craig Young</a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="experiences.html">经历</a>
-        <a href="structure.html">结构</a>
-        <a href="thinking.html">思考</a>
+      <a class="brand" href="index.html" data-i18n-aria-label="homeLabel">Craig Young</a>
+      <nav class="nav" data-i18n-aria-label="navLabel" aria-label="主导航">
+        <a href="experiences.html" data-i18n="navExperiences">经历</a>
+        <a href="structure.html" data-i18n="navStructure">结构</a>
+        <a href="thinking.html" data-i18n="navThinking">思考</a>
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to English">EN</button>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
-        <p class="kicker">Career Portfolio</p>
-        <h1>把职业经历，做成可以被浏览的产品。</h1>
-        <p class="hero-text">
+        <p class="kicker" data-i18n="homeKicker">职业作品集</p>
+        <h1 data-i18n="homeTitle">把职业经历，做成可以被浏览的产品。</h1>
+        <p class="hero-text" data-i18n="homeIntro">
           每一段经历都浓缩成一个清晰案例：背景、挑战、方案、结果，以及我自己的复盘。
         </p>
       </section>
 
       <section class="statement">
-        <p>
+        <p data-i18n="homeStatement">
           传统简历负责概括。这个网页负责展开。
           我希望让别人不用从大段文字里提炼信息，而是顺着我设计好的路径，看见每个项目的核心价值。
         </p>
@@ -35,9 +37,9 @@
       <section id="products" class="product-showcase">
         <a class="product-card product-card-dark" href="experiences.html">
           <div class="product-copy">
-            <p class="kicker">Experiences</p>
-            <h2>经历</h2>
-            <p>把每一段职业经历整理成一个可浏览的产品案例。</p>
+            <p class="kicker" data-i18n="experienceKicker">职业经历</p>
+            <h2 data-i18n="navExperiences">经历</h2>
+            <p data-i18n="experienceCard">把每一段职业经历整理成一个可浏览的产品案例。</p>
           </div>
           <div class="product-visual" aria-hidden="true">
             <span></span>
@@ -49,64 +51,54 @@
         <div class="product-grid">
           <a class="product-card product-card-light" href="structure.html">
             <div class="product-copy">
-              <p class="kicker">Structure</p>
-              <h2>结构</h2>
-              <p>用固定叙事框架，让每个项目都能被快速理解。</p>
+              <p class="kicker" data-i18n="structureKicker">叙事方式</p>
+              <h2 data-i18n="navStructure">结构</h2>
+              <p data-i18n="structureCard">用固定叙事框架，让每个项目都能被快速理解。</p>
             </div>
           </a>
 
           <a class="product-card product-card-blue" href="thinking.html">
             <div class="product-copy">
-              <p class="kicker">Thinking</p>
-              <h2>思考</h2>
-              <p>把工作中的复盘、判断和方法论持续沉淀下来。</p>
+              <p class="kicker" data-i18n="thinkingKicker">持续沉淀</p>
+              <h2 data-i18n="navThinking">思考</h2>
+              <p data-i18n="thinkingCard">把工作中的复盘、判断和方法论持续沉淀下来。</p>
             </div>
           </a>
         </div>
       </section>
 
       <section id="story" class="story-section">
-        <p class="kicker">Case Study</p>
-        <h2>每个项目，只回答五个问题。</h2>
+        <p class="kicker" data-i18n="frameworkKicker">项目框架</p>
+        <h2 data-i18n="frameworkTitle">每个项目，只回答五个问题。</h2>
         <div class="story-list">
           <article>
             <span>01</span>
-            <h3>背景</h3>
-            <p>为什么要做？当时处在什么阶段？</p>
+            <h3 data-i18n="backgroundTitle">背景</h3>
+            <p data-i18n="backgroundText">为什么要做？当时处在什么阶段？</p>
           </article>
           <article>
             <span>02</span>
-            <h3>挑战</h3>
-            <p>难点是什么？限制条件在哪里？</p>
+            <h3 data-i18n="challengeTitle">挑战</h3>
+            <p data-i18n="challengeText">难点是什么？限制条件在哪里？</p>
           </article>
           <article>
             <span>03</span>
-            <h3>方案</h3>
-            <p>如何拆解？做了什么关键判断？</p>
+            <h3 data-i18n="solutionTitle">方案</h3>
+            <p data-i18n="solutionText">如何拆解？做了什么关键判断？</p>
           </article>
           <article>
             <span>04</span>
-            <h3>结果</h3>
-            <p>指标、效率、体验或业务有什么变化？</p>
+            <h3 data-i18n="resultTitle">结果</h3>
+            <p data-i18n="resultText">指标、效率、体验或业务有什么变化？</p>
           </article>
           <article>
             <span>05</span>
-            <h3>复盘</h3>
-            <p>这件事沉淀了什么方法论？</p>
+            <h3 data-i18n="reviewTitle">复盘</h3>
+            <p data-i18n="reviewText">这件事沉淀了什么方法论？</p>
           </article>
         </div>
       </section>
 
-      <section id="notes" class="notes-section">
-        <div>
-          <p class="kicker">Navigation</p>
-          <h2>从首页进入三个承接页。</h2>
-        </div>
-        <p>
-          首页只负责建立第一印象。具体内容会在经历、结构、思考三个页面里展开，
-          让访问者可以按自己的兴趣深入阅读。
-        </p>
-      </section>
     </main>
   </body>
 </html>

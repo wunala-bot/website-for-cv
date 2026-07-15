@@ -3,38 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>思考 | Career Portfolio</title>
+    <title>思考 | Craig Young</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="language.js" defer></script>
   </head>
-  <body>
+  <body class="secondary-page">
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Back to home">Craig Young</a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="experiences.html">经历</a>
-        <a href="structure.html">结构</a>
-        <a href="thinking.html">思考</a>
+      <a class="brand" href="index.html" data-i18n-aria-label="homeLabel">Craig Young</a>
+      <nav class="nav" data-i18n-aria-label="navLabel" aria-label="主导航">
+        <a href="experiences.html" data-i18n="navExperiences">经历</a>
+        <a href="structure.html" data-i18n="navStructure">结构</a>
+        <a href="thinking.html" aria-current="page" data-i18n="navThinking">思考</a>
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to English">EN</button>
       </nav>
     </header>
 
     <main>
       <section class="page-hero">
-        <p class="kicker">Thinking</p>
-        <h1>思考</h1>
-        <p class="hero-text">这里会逐步放入复盘、判断和方法论，让网站从展示页变成长期的个人展示面。</p>
+        <p class="kicker" data-i18n="thinkingKicker">持续沉淀</p>
+        <h1 data-i18n="navThinking">思考</h1>
+        <p class="hero-text" data-i18n="thinkingIntro">这里会逐步放入复盘、判断和方法论，让网站从展示页变成长期的个人展示面。</p>
       </section>
 
       <section class="note-board">
         <article>
-          <p class="kicker">Draft</p>
-          <h2>我如何判断一个项目是否值得做</h2>
+          <p class="kicker" data-i18n="draft">草稿</p>
+          <h2 data-i18n="thinkingOne">我如何判断一个项目是否值得做</h2>
         </article>
         <article>
-          <p class="kicker">Draft</p>
-          <h2>AI 进入工作流后，产品人的价值会怎么变化</h2>
+          <p class="kicker" data-i18n="draft">草稿</p>
+          <h2 data-i18n="thinkingTwo">AI 进入工作流后，产品人的价值会怎么变化</h2>
         </article>
         <article>
-          <p class="kicker">Draft</p>
-          <h2>从指标提升到系统建设：我理解的增长</h2>
+          <p class="kicker" data-i18n="draft">草稿</p>
+          <h2 data-i18n="thinkingThree">从指标提升到系统建设：我理解的增长</h2>
         </article>
       </section>
     </main>

@@ -3,52 +3,54 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>结构 | Career Portfolio</title>
+    <title>结构 | Craig Young</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="language.js" defer></script>
   </head>
-  <body>
+  <body class="secondary-page">
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Back to home">Craig Young</a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="experiences.html">经历</a>
-        <a href="structure.html">结构</a>
-        <a href="thinking.html">思考</a>
+      <a class="brand" href="index.html" data-i18n-aria-label="homeLabel">Craig Young</a>
+      <nav class="nav" data-i18n-aria-label="navLabel" aria-label="主导航">
+        <a href="experiences.html" data-i18n="navExperiences">经历</a>
+        <a href="structure.html" aria-current="page" data-i18n="navStructure">结构</a>
+        <a href="thinking.html" data-i18n="navThinking">思考</a>
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to English">EN</button>
       </nav>
     </header>
 
     <main>
       <section class="page-hero">
-        <p class="kicker">Structure</p>
-        <h1>结构</h1>
-        <p class="hero-text">结构不是限制表达，而是帮读者更快抓到重点。</p>
+        <p class="kicker" data-i18n="structureKicker">叙事方式</p>
+        <h1 data-i18n="navStructure">结构</h1>
+        <p class="hero-text" data-i18n="structureIntro">结构不是限制表达，而是帮读者更快抓到重点。</p>
       </section>
 
       <section class="story-section page-story">
         <div class="story-list">
           <article>
             <span>01</span>
-            <h3>背景</h3>
-            <p>为什么要做？当时处在什么业务阶段？</p>
+            <h3 data-i18n="backgroundTitle">背景</h3>
+            <p data-i18n="structureBackgroundText">为什么要做？当时处在什么业务阶段？</p>
           </article>
           <article>
             <span>02</span>
-            <h3>挑战</h3>
-            <p>真正困难的地方是什么？有哪些限制？</p>
+            <h3 data-i18n="challengeTitle">挑战</h3>
+            <p data-i18n="structureChallengeText">真正困难的地方是什么？有哪些限制？</p>
           </article>
           <article>
             <span>03</span>
-            <h3>方案</h3>
-            <p>如何拆解问题？做了什么关键判断？</p>
+            <h3 data-i18n="solutionTitle">方案</h3>
+            <p data-i18n="structureSolutionText">如何拆解问题？做了什么关键判断？</p>
           </article>
           <article>
             <span>04</span>
-            <h3>结果</h3>
-            <p>指标、效率、体验或业务有什么变化？</p>
+            <h3 data-i18n="resultTitle">结果</h3>
+            <p data-i18n="resultText">指标、效率、体验或业务有什么变化？</p>
           </article>
           <article>
             <span>05</span>
-            <h3>复盘</h3>
-            <p>这件事沉淀了什么能力和方法？</p>
+            <h3 data-i18n="reviewTitle">复盘</h3>
+            <p data-i18n="structureReviewText">这件事沉淀了什么能力和方法？</p>
           </article>
         </div>
       </section>

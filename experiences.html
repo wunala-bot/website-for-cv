@@ -3,49 +3,51 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>经历 | Career Portfolio</title>
+    <title>经历 | Craig Young</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="language.js" defer></script>
   </head>
-  <body>
+  <body class="secondary-page">
     <header class="site-header">
-      <a class="brand" href="index.html" aria-label="Back to home">Craig Young</a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="experiences.html">经历</a>
-        <a href="structure.html">结构</a>
-        <a href="thinking.html">思考</a>
+      <a class="brand" href="index.html" data-i18n-aria-label="homeLabel">Craig Young</a>
+      <nav class="nav" data-i18n-aria-label="navLabel" aria-label="主导航">
+        <a href="experiences.html" aria-current="page" data-i18n="navExperiences">经历</a>
+        <a href="structure.html" data-i18n="navStructure">结构</a>
+        <a href="thinking.html" data-i18n="navThinking">思考</a>
+        <button class="language-toggle" type="button" data-language-toggle aria-label="Switch to English">EN</button>
       </nav>
     </header>
 
     <main>
       <section class="page-hero">
-        <p class="kicker">Experiences</p>
-        <h1>经历</h1>
-        <p class="hero-text">这里会放完整的职业路径，以及每段经历里最值得被看到的项目。</p>
+        <p class="kicker" data-i18n="experienceKicker">职业经历</p>
+        <h1 data-i18n="navExperiences">经历</h1>
+        <p class="hero-text" data-i18n="experiencesIntro">这里会放完整的职业路径，以及每段经历里最值得被看到的项目。</p>
       </section>
 
       <section class="case-board">
         <article class="case-row">
           <div>
-            <p class="kicker">Experience 01</p>
-            <h2>经历一</h2>
+            <p class="kicker">01</p>
+            <h2 data-i18n="experienceOne">经历一</h2>
           </div>
-          <p>这一段经历的核心主题、负责范围、代表项目和关键结果会放在这里。</p>
+          <p data-i18n="experienceOneText">这一段经历的核心主题、负责范围、代表项目和关键结果会放在这里。</p>
         </article>
 
         <article class="case-row">
           <div>
-            <p class="kicker">Experience 02</p>
-            <h2>经历二</h2>
+            <p class="kicker">02</p>
+            <h2 data-i18n="experienceTwo">经历二</h2>
           </div>
-          <p>这里承接第二段经历，可以继续展开背景、挑战、方案、结果和复盘。</p>
+          <p data-i18n="experienceTwoText">这里承接第二段经历，可以继续展开背景、挑战、方案、结果和复盘。</p>
         </article>
 
         <article class="case-row">
           <div>
-            <p class="kicker">Experience 03</p>
-            <h2>经历三</h2>
+            <p class="kicker">03</p>
+            <h2 data-i18n="experienceThree">经历三</h2>
           </div>
-          <p>这里承接第三段经历，后续可以替换成真实公司、项目或阶段名称。</p>
+          <p data-i18n="experienceThreeText">这里承接第三段经历，后续可以替换成真实公司、项目或阶段名称。</p>
         </article>
       </section>
     </main>
