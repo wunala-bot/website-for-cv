@@ -1,7 +1,7 @@
 const translations = {
   zh: {
-    pageTitle: "Craig Young | 职业作品集",
     brandName: "读读说明书",
+    footerCopyright: "© 2026 读读说明书",
     homeLabel: "返回首页",
     navLabel: "主导航",
     navExperiences: "职业经历",
@@ -66,8 +66,8 @@ const translations = {
     thinkingThree: "从指标提升到系统建设：我理解的增长"
   },
   en: {
-    pageTitle: "Craig Young | Career Portfolio",
     brandName: "Craig Young",
+    footerCopyright: "© 2026 Craig Young",
     homeLabel: "Back to home",
     navLabel: "Primary navigation",
     navExperiences: "Career",
@@ -133,16 +133,6 @@ const translations = {
   }
 };
 
-const pageTitles = {
-  "index.html": { zh: "Craig Young | 职业作品集", en: "Craig Young | Career Portfolio" },
-  "experiences.html": { zh: "经历 | Craig Young", en: "Experience | Craig Young" },
-  "experience-1.html": { zh: "经历一 | Craig Young", en: "Experience One | Craig Young" },
-  "experience-2.html": { zh: "经历二 | Craig Young", en: "Experience Two | Craig Young" },
-  "experience-3.html": { zh: "经历三 | Craig Young", en: "Experience Three | Craig Young" },
-  "thinking.html": { zh: "思考 | Craig Young", en: "Thinking | Craig Young" },
-  "photography.html": { zh: "摄影 | Craig Young", en: "Photography | Craig Young" }
-};
-
 function setLanguage(language) {
   const dictionary = translations[language];
   document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
@@ -162,8 +152,7 @@ function setLanguage(language) {
   button.setAttribute("aria-label", language === "zh" ? "Switch to English" : "切换至中文");
   button.dataset.language = language;
 
-  const fileName = window.location.pathname.split("/").pop() || "index.html";
-  document.title = (pageTitles[fileName] || pageTitles["index.html"])[language];
+  document.title = dictionary.brandName;
   localStorage.setItem("portfolio-language", language);
 }
 
