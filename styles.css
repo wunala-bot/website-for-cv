@@ -263,6 +263,10 @@ a.product-card:hover {
   margin-bottom: 0;
 }
 
+.product-card-wide {
+  min-height: 460px;
+}
+
 .product-card-light {
   background:
     linear-gradient(180deg, #ffffff, #f1f2f5);
@@ -365,6 +369,10 @@ a.product-card:hover {
   margin-bottom: 72px;
 }
 
+.secondary-page .case-board {
+  margin-bottom: 0;
+}
+
 .secondary-page .note-board article {
   background: var(--subtle);
 }
@@ -399,9 +407,21 @@ a.product-card:hover {
 }
 
 .page-story {
-  padding-top: 34px;
+  padding-top: 84px;
   padding-bottom: 0;
   text-align: left;
+}
+
+.page-story > .kicker,
+.page-story > h2 {
+  text-align: left;
+}
+
+.page-story > h2 {
+  max-width: 720px;
+  margin: 0 0 44px;
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.1;
 }
 
 .page-story .story-list {
