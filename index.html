@@ -3,227 +3,109 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Career Product Portfolio</title>
+    <title>Career Portfolio</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#top" aria-label="Back to top">
-        <span class="brand-mark"></span>
-        <span>Career OS</span>
-      </a>
+      <a class="brand" href="#top" aria-label="Back to top">Craig Young</a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#overview">总览</a>
-        <a href="#experiences">经历</a>
-        <a href="#case-template">案例结构</a>
-        <a href="#thinking">思考</a>
+        <a href="#products">经历</a>
+        <a href="#story">结构</a>
+        <a href="#notes">思考</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero section">
-        <div class="hero-copy">
-          <p class="eyebrow">Interactive Career Portfolio</p>
-          <h1>把每一段经历，当成一个产品来介绍。</h1>
-          <p class="lead">
-            这不是传统简历的网页版本，而是一套由我主动设计阅读路径的职业展示面：
-            让别人快速理解我做过什么、解决了什么问题、带来了什么变化。
-          </p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button primary" href="#experiences">查看经历产品墙</a>
-            <a class="button ghost" href="#case-template">查看项目叙事模板</a>
-          </div>
-        </div>
-
-        <aside class="signal-panel" aria-label="Career signal summary">
-          <div class="panel-header">
-            <span>Core Signals</span>
-            <span class="status-dot"></span>
-          </div>
-          <div class="metric-grid">
-            <div>
-              <strong>5</strong>
-              <span>叙事模块</span>
-            </div>
-            <div>
-              <strong>3</strong>
-              <span>重点经历</span>
-            </div>
-            <div>
-              <strong>∞</strong>
-              <span>持续沉淀</span>
-            </div>
-          </div>
-          <div class="mini-map" aria-hidden="true">
-            <span style="--size: 72%;"></span>
-            <span style="--size: 48%;"></span>
-            <span style="--size: 86%;"></span>
-            <span style="--size: 58%;"></span>
-          </div>
-        </aside>
+      <section class="hero">
+        <p class="kicker">Career Portfolio</p>
+        <h1>把职业经历，做成可以被浏览的产品。</h1>
+        <p class="hero-text">
+          每一段经历都浓缩成一个清晰案例：背景、挑战、方案、结果，以及我自己的复盘。
+        </p>
       </section>
 
-      <section id="overview" class="section">
-        <div class="section-heading">
-          <p class="eyebrow">Portfolio Structure</p>
-          <h2>先让信息有秩序，再让界面变好看。</h2>
-        </div>
-        <div class="structure-grid">
-          <article class="structure-item">
-            <span class="step">01</span>
-            <h3>首页定位</h3>
-            <p>用一句话定位、核心能力标签、代表成果数字，让访客在 30 秒内知道你是谁。</p>
-          </article>
-          <article class="structure-item">
-            <span class="step">02</span>
-            <h3>经历产品墙</h3>
-            <p>把每一段经历包装成一个产品模块，突出主题、问题、角色、成果和可点击入口。</p>
-          </article>
-          <article class="structure-item">
-            <span class="step">03</span>
-            <h3>项目详情页</h3>
-            <p>用背景、挑战、方案、结果、复盘的固定结构，讲完整一个项目的来龙去脉。</p>
-          </article>
-          <article class="structure-item">
-            <span class="step">04</span>
-            <h3>思考沉淀</h3>
-            <p>把工作中的判断、方法论和复盘慢慢写成文章，让网站成为长期展示面。</p>
-          </article>
-        </div>
+      <section class="statement">
+        <p>
+          传统简历负责概括。这个网页负责展开。
+          我希望让别人不用从大段文字里提炼信息，而是顺着我设计好的路径，看见每个项目的核心价值。
+        </p>
       </section>
 
-      <section id="experiences" class="section">
-        <div class="section-heading split">
-          <div>
-            <p class="eyebrow">Experience Products</p>
-            <h2>经历产品墙</h2>
+      <section id="products" class="product-showcase">
+        <article class="product-card product-card-dark">
+          <div class="product-copy">
+            <p class="kicker">Product 01</p>
+            <h2>增长系统</h2>
+            <p>重新梳理用户路径、转化节点和关键指标，把分散的动作变成可持续优化的系统。</p>
           </div>
-          <p>
-            初版可以先放 3 到 5 个最能代表你的项目。每张卡片只承载最核心的信息，
-            让人愿意点进去看完整故事。
-          </p>
-        </div>
+          <div class="product-visual" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </article>
 
-        <div class="experience-grid">
-          <article class="experience-card featured">
-            <div class="card-topline">
-              <span>Product 01</span>
-              <span>重点案例</span>
-            </div>
-            <h3>从 0 到 1 搭建某业务增长系统</h3>
-            <p>
-              围绕用户路径、转化漏斗和业务目标，重新设计关键流程，推动跨团队落地。
-            </p>
-            <div class="tags">
-              <span>增长转化</span>
-              <span>数据分析</span>
-              <span>产品策略</span>
-            </div>
-            <dl class="result-list">
-              <div>
-                <dt>核心挑战</dt>
-                <dd>用户路径不清晰，转化节点分散。</dd>
-              </div>
-              <div>
-                <dt>关键结果</dt>
-                <dd>转化率提升 xx%，流程效率提升 xx%。</dd>
-              </div>
-            </dl>
-          </article>
-
-          <article class="experience-card">
-            <div class="card-topline">
-              <span>Product 02</span>
-              <span>AI / 效率</span>
-            </div>
-            <h3>AI 工具落地与团队效率提升</h3>
-            <p>
-              把 AI 能力嵌入日常工作流，降低重复劳动，让团队把时间花在更高价值的判断上。
-            </p>
-            <div class="tags">
-              <span>AI 应用</span>
-              <span>流程优化</span>
-              <span>团队协作</span>
+        <div class="product-grid">
+          <article class="product-card product-card-light">
+            <div class="product-copy">
+              <p class="kicker">Product 02</p>
+              <h2>AI 工作流</h2>
+              <p>把 AI 能力嵌入真实工作场景，减少重复劳动，让判断、协作和产出更快发生。</p>
             </div>
           </article>
 
-          <article class="experience-card">
-            <div class="card-topline">
-              <span>Product 03</span>
-              <span>商业化</span>
-            </div>
-            <h3>产品商业化路径设计</h3>
-            <p>
-              从用户需求、定价逻辑、销售反馈和数据验证出发，设计更清晰的商业化路径。
-            </p>
-            <div class="tags">
-              <span>商业分析</span>
-              <span>用户洞察</span>
-              <span>指标拆解</span>
+          <article class="product-card product-card-blue">
+            <div class="product-copy">
+              <p class="kicker">Product 03</p>
+              <h2>商业化路径</h2>
+              <p>从用户需求、定价逻辑、销售反馈和数据验证出发，设计更清晰的增长闭环。</p>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="case-template" class="section narrative-section">
-        <div class="section-heading">
-          <p class="eyebrow">Case Study Flow</p>
-          <h2>每个项目都用同一套叙事骨架。</h2>
-        </div>
-
-        <div class="story-flow">
+      <section id="story" class="story-section">
+        <p class="kicker">Case Study</p>
+        <h2>每个项目，只回答五个问题。</h2>
+        <div class="story-list">
           <article>
             <span>01</span>
             <h3>背景</h3>
-            <p>当时处在什么业务阶段？为什么这个项目值得做？它和整体目标有什么关系？</p>
+            <p>为什么要做？当时处在什么阶段？</p>
           </article>
           <article>
             <span>02</span>
             <h3>挑战</h3>
-            <p>真正难的地方是什么？限制条件、资源、数据、用户行为或组织协作问题在哪里？</p>
+            <p>难点是什么？限制条件在哪里？</p>
           </article>
           <article>
             <span>03</span>
             <h3>方案</h3>
-            <p>你如何拆解问题？做出了什么判断？提出了什么产品、策略或流程设计？</p>
+            <p>如何拆解？做了什么关键判断？</p>
           </article>
           <article>
             <span>04</span>
             <h3>结果</h3>
-            <p>最终带来了什么变化？最好用指标、对比、用户反馈或业务影响来呈现。</p>
+            <p>指标、效率、体验或业务有什么变化？</p>
           </article>
           <article>
             <span>05</span>
             <h3>复盘</h3>
-            <p>这件事让你形成了什么方法论？如果再做一次，你会如何优化？</p>
+            <p>这件事沉淀了什么方法论？</p>
           </article>
         </div>
       </section>
 
-      <section id="thinking" class="section thinking-section">
-        <div class="section-heading split">
-          <div>
-            <p class="eyebrow">Thinking Layer</p>
-            <h2>让网站逐渐从简历，长成个人展示面。</h2>
-          </div>
-          <p>
-            第一阶段先展示经历。第二阶段可以把项目复盘、产品判断、AI 应用、增长方法论写成文章。
-          </p>
+      <section id="notes" class="notes-section">
+        <div>
+          <p class="kicker">Thinking</p>
+          <h2>经历之后，是思考。</h2>
         </div>
-        <div class="article-row">
-          <article>
-            <span>待写</span>
-            <h3>我如何判断一个项目是否值得做</h3>
-          </article>
-          <article>
-            <span>待写</span>
-            <h3>AI 进入工作流后，产品人的价值会怎么变化</h3>
-          </article>
-          <article>
-            <span>待写</span>
-            <h3>从指标提升到系统建设：我理解的增长</h3>
-          </article>
-        </div>
+        <p>
+          后续这里会放工作复盘、产品判断、AI 应用和增长方法论。
+          网站会从一份更直观的简历，慢慢变成一个长期对外展示面。
+        </p>
       </section>
     </main>
   </body>
