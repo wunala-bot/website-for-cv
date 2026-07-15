@@ -68,6 +68,14 @@ a {
   text-align: center;
 }
 
+.page-hero {
+  display: grid;
+  place-items: center;
+  min-height: 58svh;
+  padding: 112px 22px 72px;
+  text-align: center;
+}
+
 .kicker {
   margin: 0 0 16px;
   color: var(--muted);
@@ -132,6 +140,15 @@ h1 {
   margin-bottom: 14px;
   border-radius: 0;
   background: var(--card);
+}
+
+a.product-card {
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+a.product-card:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.98);
 }
 
 .product-card-dark {
@@ -298,10 +315,69 @@ h1 {
   margin-bottom: 0;
 }
 
+.case-board,
+.note-board {
+  width: min(1040px, calc(100% - 44px));
+  margin: 0 auto 14px;
+}
+
+.case-row {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.78fr) 1fr;
+  align-items: end;
+  gap: 48px;
+  min-height: 360px;
+  margin-bottom: 14px;
+  padding: 54px 56px;
+  background: #fff;
+}
+
+.case-row h2,
+.note-board h2 {
+  margin-bottom: 0;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+
+.case-row > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.page-story {
+  padding-top: 0;
+}
+
+.note-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.note-board article {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px;
+  padding: 36px;
+  background: #fff;
+}
+
+.note-board h2 {
+  font-size: clamp(30px, 4vw, 46px);
+}
+
 @media (max-width: 900px) {
   .product-grid,
   .story-list,
-  .notes-section {
+  .notes-section,
+  .case-row,
+  .note-board {
     grid-template-columns: 1fr;
   }
 
@@ -316,6 +392,15 @@ h1 {
   .notes-section {
     padding: 64px 28px;
   }
+
+  .case-row {
+    min-height: 280px;
+    padding: 44px 28px;
+  }
+
+  .note-board article {
+    min-height: 260px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -329,6 +414,11 @@ h1 {
 
   .hero {
     min-height: 70svh;
+    padding-top: 86px;
+  }
+
+  .page-hero {
+    min-height: 52svh;
     padding-top: 86px;
   }
 
