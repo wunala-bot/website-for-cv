@@ -4,7 +4,7 @@ const translations = {
     footerCopyright: "© 2026 读读说明书",
     homeLabel: "返回首页",
     navLabel: "主导航",
-    navExperiences: "职业经历",
+    navExperiences: "旅程",
     navThinking: "思考",
     navPhotography: "摄影",
     heroQuoteLead: "保持好奇，",
@@ -13,8 +13,8 @@ const translations = {
     homeTitle: "把职业经历，做成可以被浏览的产品。",
     homeIntro: "每一段经历都浓缩成一个清晰案例：背景、挑战、方案、结果，以及我自己的复盘。",
     homeStatement: "传统简历负责概括。这个网页负责展开。我希望让别人不用从大段文字里提炼信息，而是顺着我设计好的路径，看见每个项目的核心价值。",
-    experienceKicker: "职业经历",
-    experienceCard: "记录我做过的项目、解决的问题和带来的变化。",
+    experienceKicker: "人生轨迹",
+    experienceCard: "记录职业选择，也记录生活中重要的转折与抵达。",
     thinkingKicker: "持续沉淀",
     thinkingCard: "关于工作、职业，也关于生活。",
     photographyCard: "分享我所看见并想要留下的瞬间。",
@@ -33,14 +33,14 @@ const translations = {
     resultText: "指标、效率、体验或业务有什么变化？",
     reviewTitle: "复盘",
     reviewText: "这件事沉淀了什么方法论？",
-    experiencesIntro: "这里会放完整的职业路径，以及每段经历里最值得被看到的项目。",
+    experiencesIntro: "这里记录职业选择，也记录生活中值得被记住的重要章节。",
     experienceOne: "经历一",
     experienceOneText: "这一段经历的核心主题、负责范围、代表项目和关键结果会放在这里。",
     experienceTwo: "经历二",
     experienceTwoText: "这里承接第二段经历，可以继续展开背景、挑战、方案、结果和复盘。",
     experienceThree: "经历三",
     experienceThreeText: "这里承接第三段经历，后续可以替换成真实公司、项目或阶段名称。",
-    backToExperiences: "← 返回职业经历",
+    backToExperiences: "← 返回旅程",
     caseOneKicker: "案例 01",
     caseOneIntro: "这一页将完整呈现第一段经历中最重要的项目与变化。",
     caseOneBackground: "这里说明项目为什么发生、当时所处的业务阶段，以及需要解决的核心问题。",
@@ -70,7 +70,7 @@ const translations = {
     footerCopyright: "© 2026 Craig Young",
     homeLabel: "Back to home",
     navLabel: "Primary navigation",
-    navExperiences: "Career",
+    navExperiences: "Journey",
     navThinking: "Thinking",
     navPhotography: "Photography",
     heroQuoteLead: "Stay curious. ",
@@ -79,8 +79,8 @@ const translations = {
     homeTitle: "Career stories, presented like products.",
     homeIntro: "Each experience becomes a focused case study: context, challenge, approach, outcome, and reflection.",
     homeStatement: "A resume summarizes. This website expands. It guides the reader through each project and brings its most important value into focus.",
-    experienceKicker: "Career Experience",
-    experienceCard: "Projects I built, problems I solved, and the change they created.",
+    experienceKicker: "Life in Chapters",
+    experienceCard: "The choices, turning points, and arrivals that shaped my path.",
     thinkingKicker: "Ongoing Notes",
     thinkingCard: "Notes on work, career, and life.",
     photographyCard: "Moments I noticed and wanted to keep.",
@@ -99,14 +99,14 @@ const translations = {
     resultText: "What changed across metrics, efficiency, experience, or the business?",
     reviewTitle: "Reflection",
     reviewText: "What principles and methods came out of the work?",
-    experiencesIntro: "A complete career path, with the projects and outcomes that matter most in each chapter.",
+    experiencesIntro: "Career choices and meaningful chapters from life, gathered in one journey.",
     experienceOne: "Experience One",
     experienceOneText: "The central theme, scope, representative projects, and key outcomes of this chapter will live here.",
     experienceTwo: "Experience Two",
     experienceTwoText: "This chapter can unfold through context, challenge, approach, outcome, and reflection.",
     experienceThree: "Experience Three",
     experienceThreeText: "This chapter can later be replaced with a real company, project, or career stage.",
-    backToExperiences: "← Back to career",
+    backToExperiences: "← Back to Journey",
     caseOneKicker: "Case 01",
     caseOneIntro: "A complete account of the most important project and change from my first experience.",
     caseOneBackground: "Why the project began, the business stage at the time, and the central problem it needed to solve.",
@@ -133,7 +133,7 @@ const translations = {
   }
 };
 
-function setLanguage(language) {
+function setLanguage(language, persist = false) {
   const dictionary = translations[language];
   document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
 
@@ -148,17 +148,20 @@ function setLanguage(language) {
   });
 
   const button = document.querySelector("[data-language-toggle]");
-  button.textContent = language === "zh" ? "EN" : "中文";
   button.setAttribute("aria-label", language === "zh" ? "Switch to English" : "切换至中文");
   button.dataset.language = language;
 
   document.title = dictionary.brandName;
-  localStorage.setItem("portfolio-language", language);
+  if (persist) localStorage.setItem("portfolio-language", language);
 }
 
-const initialLanguage = localStorage.getItem("portfolio-language") === "en" ? "en" : "zh";
+const savedLanguage = localStorage.getItem("portfolio-language");
+const browserLanguage = (navigator.languages?.[0] || navigator.language || "en").toLowerCase();
+const initialLanguage = savedLanguage === "zh" || savedLanguage === "en"
+  ? savedLanguage
+  : browserLanguage.startsWith("zh") ? "zh" : "en";
 setLanguage(initialLanguage);
 
 document.querySelector("[data-language-toggle]").addEventListener("click", (event) => {
-  setLanguage(event.currentTarget.dataset.language === "zh" ? "en" : "zh");
+  setLanguage(event.currentTarget.dataset.language === "zh" ? "en" : "zh", true);
 });

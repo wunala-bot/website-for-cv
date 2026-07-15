@@ -83,15 +83,56 @@ a {
 }
 
 .language-toggle {
-  min-width: 36px;
-  padding: 5px 0;
-  border: 0;
-  border-left: 1px solid rgba(0, 0, 0, 0.12);
-  color: var(--ink);
-  background: transparent;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 72px;
+  min-width: 72px;
+  height: 28px;
+  padding: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  color: var(--muted);
+  background: rgba(0, 0, 0, 0.05);
   font: inherit;
+  font-size: 10px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.language-toggle::before {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 32px;
+  height: 22px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  content: "";
+  transition: transform 180ms ease;
+}
+
+.language-toggle[data-language="en"]::before {
+  transform: translateX(34px);
+}
+
+.language-toggle span {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  transition: color 180ms ease;
+}
+
+.language-toggle[data-language="zh"] [data-language-option="zh"],
+.language-toggle[data-language="en"] [data-language-option="en"] {
+  color: var(--ink);
+}
+
+.language-toggle:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .hero {
@@ -742,7 +783,18 @@ a.product-card:hover {
   }
 
   .language-toggle {
-    min-width: 30px;
+    width: 68px;
+    min-width: 68px;
+    height: 26px;
+  }
+
+  .language-toggle::before {
+    width: 30px;
+    height: 20px;
+  }
+
+  .language-toggle[data-language="en"]::before {
+    transform: translateX(32px);
   }
 
   .hero {
@@ -892,12 +944,35 @@ a.product-card:hover {
   }
 
   .nav {
-    gap: 9px;
+    gap: 7px;
+    font-size: 10px;
   }
 }
 
 @media (max-width: 340px) {
+  .site-header {
+    padding: 0 12px;
+  }
+
+  .brand {
+    font-size: 11px;
+  }
+
   .nav {
-    gap: 7px;
+    gap: 5px;
+    font-size: 9px;
+  }
+
+  .language-toggle {
+    width: 60px;
+    min-width: 60px;
+  }
+
+  .language-toggle::before {
+    width: 26px;
+  }
+
+  .language-toggle[data-language="en"]::before {
+    transform: translateX(28px);
   }
 }
