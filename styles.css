@@ -86,6 +86,16 @@ a {
   text-align: center;
 }
 
+.quote-hero {
+  min-height: 72svh;
+}
+
+.quote-hero h1 {
+  max-width: 920px;
+  margin-bottom: 0;
+  font-size: clamp(52px, 7vw, 88px);
+}
+
 .page-hero {
   width: min(1040px, calc(100% - 44px));
   margin: 0 auto;
@@ -160,6 +170,34 @@ h1 {
   width: min(1180px, calc(100% - 28px));
   margin: 0 auto;
   padding-bottom: 14px;
+}
+
+.home-sections {
+  padding-bottom: 14px;
+}
+
+.home-section-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.home-section-grid .product-card {
+  min-height: 480px;
+  margin-bottom: 0;
+}
+
+.home-section-grid .product-copy {
+  align-self: start;
+  padding: 62px 28px;
+}
+
+.home-section-grid .product-copy h2 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.home-section-grid .product-copy p:not(.kicker) {
+  font-size: clamp(17px, 1.7vw, 21px);
 }
 
 .product-card {
@@ -392,6 +430,26 @@ a.product-card:hover {
   background: var(--subtle);
 }
 
+.photography-page .page-hero {
+  text-align: center;
+}
+
+.photography-page .page-hero .hero-text {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.photography-placeholder {
+  display: grid;
+  place-items: center;
+  width: min(1040px, calc(100% - 44px));
+  min-height: 360px;
+  margin: 0 auto 72px;
+  background: var(--subtle);
+  color: var(--muted);
+  font-size: 17px;
+}
+
 .case-row {
   position: relative;
   display: grid;
@@ -579,6 +637,7 @@ a.product-card:hover {
 }
 
 @media (max-width: 900px) {
+  .home-section-grid,
   .product-grid,
   .story-list,
   .notes-section,
@@ -635,6 +694,18 @@ a.product-card:hover {
     padding-top: 86px;
   }
 
+  .quote-hero {
+    min-height: 62svh;
+  }
+
+  .quote-hero h1 {
+    font-size: 42px;
+  }
+
+  .quote-hero h1 span {
+    display: block;
+  }
+
   .page-hero {
     width: calc(100% - 40px);
     padding: 58px 0 28px;
@@ -653,6 +724,10 @@ a.product-card:hover {
     min-height: 460px;
   }
 
+  .home-section-grid .product-card {
+    min-height: 420px;
+  }
+
   .product-copy {
     padding: 54px 22px;
   }
@@ -663,7 +738,8 @@ a.product-card:hover {
 
   .story-section,
   .case-board,
-  .note-board {
+  .note-board,
+  .photography-placeholder {
     width: calc(100% - 40px);
   }
 
