@@ -478,11 +478,13 @@ a.product-card:hover {
 .site-footer {
   display: flex;
   align-items: center;
+  justify-content: center;
   min-height: 52px;
   padding: 0 max(22px, calc((100vw - 1040px) / 2));
   border-top: 1px solid var(--line);
   color: var(--muted);
   background: var(--subtle);
+  text-align: center;
 }
 
 .site-footer p {
