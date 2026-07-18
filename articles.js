@@ -5,7 +5,7 @@
   const articles = {
     "journey-2020": {
       type: "journey",
-      year: "2020",
+      date: "2020-01-01",
       zh: {
         category: "旅程",
         title: "第一次选择",
@@ -31,7 +31,7 @@
     },
     "journey-2022": {
       type: "journey",
-      year: "2022",
+      date: "2022-01-01",
       zh: {
         category: "旅程",
         title: "新的阶段",
@@ -57,7 +57,7 @@
     },
     "journey-2024": {
       type: "journey",
-      year: "2024",
+      date: "2024-01-01",
       zh: {
         category: "旅程",
         title: "重要转折",
@@ -83,19 +83,19 @@
     },
     "thinking-1": {
       type: "thinking",
-      year: "2026",
+      date: "2026-07-18",
       zh: { category: "思考", title: "我如何判断一个项目是否值得做", dek: "在投入资源之前，先判断问题本身是否值得被解决。", blocks: [{ type: "p", text: "一件事能够被做，并不意味着它值得被做。我的判断通常从三个问题开始：问题是否真实存在，解决之后是否会带来可感知的变化，以及这件事是否能够沉淀出可以复用的能力。" }, { type: "p", text: "好的项目不一定规模最大，但应该让目标、行动和结果之间保持清晰的联系。" }] },
       en: { category: "Thinking", title: "How I decide whether a project is worth doing", dek: "Before committing resources, decide whether the problem itself deserves to be solved.", blocks: [{ type: "p", text: "The fact that something can be built does not mean it should be. I usually begin with three questions: Is the problem real? Will solving it create a perceptible change? Will the work build a capability that can be reused?" }, { type: "p", text: "A good project is not necessarily the largest one, but it should maintain a clear relationship between the goal, the action, and the outcome." }] }
     },
     "thinking-2": {
       type: "thinking",
-      year: "2026",
+      date: "2026-07-18",
       zh: { category: "思考", title: "AI 进入工作流后，产品人的价值会怎么变化", dek: "工具提高了产出的速度，也让判断的重要性更加突出。", blocks: [{ type: "p", text: "当制作方案、整理信息和验证想法的成本下降，产品工作的价值会进一步向问题定义、取舍和组织协作移动。" }, { type: "p", text: "AI 可以让很多动作变快，但它不会自动决定什么值得做。能够提出更好的问题，并对结果负责，仍然是人的工作。" }] },
       en: { category: "Thinking", title: "How AI changes the value of product work", dek: "Tools accelerate output and make judgment even more important.", blocks: [{ type: "p", text: "As the cost of drafting solutions, organizing information, and testing ideas falls, the value of product work moves further toward problem definition, tradeoffs, and coordination." }, { type: "p", text: "AI can make many actions faster, but it does not decide what deserves to be done. Asking better questions and taking responsibility for outcomes remain human work." }] }
     },
     "thinking-3": {
       type: "thinking",
-      year: "2026",
+      date: "2026-07-18",
       zh: { category: "思考", title: "从指标提升到系统建设：我理解的增长", dek: "增长不只是一次数字变化，而是持续产生结果的能力。", blocks: [{ type: "p", text: "单次指标提升可以来自机会、活动或投入。真正稳定的增长，则来自一套能够持续理解用户、验证假设并修正方向的系统。" }, { type: "p", text: "因此，我更愿意把增长理解成组织学习速度的结果，而不仅是一张报表上的曲线。" }] },
       en: { category: "Thinking", title: "From metric growth to system building", dek: "Growth is not a one-time change in numbers, but the ability to keep producing results.", blocks: [{ type: "p", text: "A single metric increase may come from timing, a campaign, or additional investment. Durable growth comes from a system that continuously understands users, tests assumptions, and corrects direction." }, { type: "p", text: "I therefore see growth as an outcome of how quickly an organization learns, not only as a curve on a dashboard." }] }
     }
@@ -116,11 +116,17 @@
     const back = root.querySelector("[data-article-back]");
     const body = root.querySelector("[data-article-body]");
 
-    root.querySelector("[data-article-category]").textContent = `${content.category} · ${article.year}`;
+    const formattedDate = new Intl.DateTimeFormat(lang === "zh" ? "zh-CN" : "en", {
+      year: "numeric",
+      month: "long",
+      day: "numeric"
+    }).format(new Date(`${article.date}T12:00:00`));
+
+    root.querySelector("[data-article-category]").textContent = `${content.category} · ${article.date.slice(0, 4)}`;
     root.querySelector("[data-article-title]").textContent = content.title;
     root.querySelector("[data-article-dek]").textContent = content.dek;
-    root.querySelector("[data-article-date]").textContent = article.year;
-    root.querySelector("[data-article-date]").dateTime = article.year;
+    root.querySelector("[data-article-date]").textContent = formattedDate;
+    root.querySelector("[data-article-date]").dateTime = article.date;
     back.href = isJourney ? "experiences.html" : "thinking.html";
     back.textContent = lang === "zh" ? `← 返回${isJourney ? "旅程" : "思考"}` : `← Back to ${isJourney ? "Journey" : "Thinking"}`;
 

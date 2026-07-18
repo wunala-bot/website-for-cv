@@ -7,6 +7,7 @@ const translations = {
     navExperiences: "旅程",
     navThinking: "思考",
     navPhotography: "摄影",
+    navAbout: "关于",
     heroQuoteLead: "保持好奇，",
     heroQuoteEnd: "持续创造。",
     homeKicker: "职业作品集",
@@ -44,7 +45,18 @@ const translations = {
     draft: "草稿",
     thinkingOne: "我如何判断一个项目是否值得做",
     thinkingTwo: "AI 进入工作流后，产品人的价值会怎么变化",
-    thinkingThree: "从指标提升到系统建设：我理解的增长"
+    thinkingThree: "从指标提升到系统建设：我理解的增长",
+    aboutKicker: "个人档案",
+    aboutTitle: "关于我",
+    aboutNowTitle: "现在",
+    aboutNowText: "目前生活在成都，从事金融数据研究。此前在字节跳动负责电商体验运营，也做过数据分析相关工作。",
+    aboutWorkTitle: "擅长的事",
+    aboutWorkText: "使用 SQL、Python 等工具理解数据，也擅长项目管理、结构化分析、快速学习和跨部门协作。",
+    aboutLifeTitle: "工作之外",
+    aboutLifeText: "打网球，也喜欢散步、电影、音乐、自然、机场和随时掏出手机拍照。行走通常是我整理思绪的方式。",
+    aboutSiteTitle: "这个网站",
+    aboutSiteText: "这里把职业经历、长期思考和生活片段放在一起。比起一份静态简历，我更希望它能持续记录一个人如何工作、如何生活，以及如何理解世界。",
+    aboutContactTitle: "联系"
   },
   en: {
     brandName: "Craig Young",
@@ -54,6 +66,7 @@ const translations = {
     navExperiences: "Journey",
     navThinking: "Thinking",
     navPhotography: "Photography",
+    navAbout: "About",
     heroQuoteLead: "Stay curious. ",
     heroQuoteEnd: "Keep creating.",
     homeKicker: "Career Portfolio",
@@ -91,7 +104,18 @@ const translations = {
     draft: "Draft",
     thinkingOne: "How I decide whether a project is worth doing",
     thinkingTwo: "How AI changes the value of product work",
-    thinkingThree: "From metric growth to system building"
+    thinkingThree: "From metric growth to system building",
+    aboutKicker: "Profile",
+    aboutTitle: "About Me",
+    aboutNowTitle: "Now",
+    aboutNowText: "I live in Chengdu and work in financial data research. Previously, I worked on e-commerce experience operations at ByteDance and in data analysis.",
+    aboutWorkTitle: "What I Do Well",
+    aboutWorkText: "I use tools such as SQL and Python to understand data, with strengths in project management, structured analysis, fast learning, and cross-functional collaboration.",
+    aboutLifeTitle: "Beyond Work",
+    aboutLifeText: "I play tennis and enjoy walking, film, music, nature, airports, and taking photographs whenever something catches my eye. Walking is often how I organize my thoughts.",
+    aboutSiteTitle: "This Website",
+    aboutSiteText: "This is where career experiences, ongoing thoughts, and moments from life meet. Rather than a static resume, I want it to keep recording how a person works, lives, and understands the world.",
+    aboutContactTitle: "Contact"
   }
 };
 

@@ -968,6 +968,52 @@ a.product-card:hover {
   font-weight: 600;
 }
 
+.about-page .page-hero {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.about-content {
+  width: min(760px, calc(100% - 44px));
+  margin: 0 auto 80px;
+}
+
+.about-section {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 28px;
+  padding: 48px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-section > span {
+  padding-top: 7px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.about-section h2 {
+  margin-bottom: 14px;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.about-section p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.about-contact a {
+  color: var(--blue);
+  font-size: 18px;
+  font-weight: 600;
+}
+
 .page-story {
   padding-top: 84px;
   padding-bottom: 0;
@@ -1113,23 +1159,23 @@ a.product-card:hover {
   }
 
   .nav {
-    gap: 13px;
+    gap: 8px;
     font-size: 11px;
   }
 
   .language-toggle {
-    width: 68px;
-    min-width: 68px;
+    width: 60px;
+    min-width: 60px;
     height: 26px;
   }
 
   .language-toggle::before {
-    width: 30px;
+    width: 26px;
     height: 20px;
   }
 
   .language-toggle[data-language="en"]::before {
-    transform: translateX(32px);
+    transform: translateX(28px);
   }
 
   .hero {
@@ -1318,6 +1364,25 @@ a.product-card:hover {
     margin: 36px 0;
     padding-left: 18px;
     font-size: 21px;
+  }
+
+  .about-content {
+    width: calc(100% - 40px);
+    margin-bottom: 56px;
+  }
+
+  .about-section {
+    grid-template-columns: 34px 1fr;
+    gap: 14px;
+    padding: 36px 0;
+  }
+
+  .about-section h2 {
+    font-size: 25px;
+  }
+
+  .about-section p {
+    font-size: 17px;
   }
 
   .page-story {
