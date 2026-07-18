@@ -8,8 +8,6 @@
   const wave = root.querySelector("[data-timeline-wave]");
   const nodes = [...root.querySelectorAll("[data-timeline-node]")];
   const panels = [...root.querySelectorAll("[data-timeline-panel]")];
-  const previous = root.querySelector("[data-timeline-prev]");
-  const next = root.querySelector("[data-timeline-next]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   let selectedIndex = nodes.length - 1;
@@ -20,7 +18,9 @@
   let lastX = 0;
   let lastTime = 0;
   let velocity = 0;
-  let scrollTimer;
+  let frame = 0;
+  let pendingFocus = null;
+  let pendingVelocity = 0;
 
   function centers() {
     return nodes.map((node) => node.offsetLeft + node.offsetWidth / 2);
@@ -28,11 +28,11 @@
 
   function renderWave(focusX = null, speed = 0) {
     const width = track.scrollWidth;
-    const baseY = 60;
+    const baseY = 42;
     const points = [];
     const nodeCenters = centers();
 
-    svg.setAttribute("viewBox", `0 0 ${width} 124`);
+    svg.setAttribute("viewBox", `0 0 ${width} 88`);
     svg.style.width = `${width}px`;
 
     for (let x = 0; x <= width; x += 14) {
@@ -51,8 +51,8 @@
       const distance = focusX === null ? Infinity : Math.abs(nodeCenters[index] - focusX);
       const proximity = Math.max(0, 1 - distance / 180);
       const selected = index === selectedIndex ? 1 : 0;
-      node.style.setProperty("--node-scale", String(1 + proximity * 0.18 + selected * 0.28));
-      node.style.setProperty("--node-lift", `${-(proximity * 5 + selected * 7)}px`);
+      node.style.setProperty("--node-scale", String(1 + proximity * 0.1 + selected * 0.14));
+      node.style.setProperty("--node-lift", `${-(proximity * 2 + selected * 2)}px`);
     });
   }
 
@@ -68,6 +68,17 @@
     viewport.scrollTo({
       left: Math.max(0, target),
       behavior: reduceMotion ? "auto" : behavior
+    });
+  }
+
+  function scheduleWave(focusX = null, speed = 0) {
+    pendingFocus = focusX;
+    pendingVelocity = speed;
+    if (frame) return;
+
+    frame = requestAnimationFrame(() => {
+      frame = 0;
+      renderWave(pendingFocus, pendingVelocity);
     });
   }
 
@@ -105,13 +116,13 @@
     velocity = 0;
     viewport.classList.add("is-dragging");
     viewport.setPointerCapture(event.pointerId);
-    renderWave(pointerPosition(event));
+    scheduleWave(pointerPosition(event));
   });
 
   viewport.addEventListener("pointermove", (event) => {
     const focusX = pointerPosition(event);
     if (!dragging) {
-      renderWave(focusX);
+      scheduleWave(focusX);
       return;
     }
 
@@ -120,11 +131,11 @@
     const now = performance.now();
     const elapsed = Math.max(1, now - lastTime);
     velocity = (event.clientX - lastX) / elapsed;
-    viewport.scrollLeft = startScrollLeft - delta;
+    viewport.scrollLeft = startScrollLeft - delta * 1.15;
     moved = moved || Math.abs(delta) > 4;
     lastX = event.clientX;
     lastTime = now;
-    renderWave(focusX, velocity);
+    scheduleWave(focusX, velocity);
   });
 
   function finishDrag(event) {
@@ -132,23 +143,19 @@
     dragging = false;
     viewport.classList.remove("is-dragging");
     if (viewport.hasPointerCapture(event.pointerId)) viewport.releasePointerCapture(event.pointerId);
+    const glide = Math.max(-48, Math.min(48, velocity * 90));
+    viewport.scrollLeft -= glide;
     selectIndex(nearestIndex());
     window.setTimeout(() => {
       moved = false;
-      renderWave();
-    }, reduceMotion ? 0 : 220);
+      scheduleWave();
+    }, reduceMotion ? 0 : 180);
   }
 
   viewport.addEventListener("pointerup", finishDrag);
   viewport.addEventListener("pointercancel", finishDrag);
   viewport.addEventListener("pointerleave", () => {
-    if (!dragging) renderWave();
-  });
-
-  viewport.addEventListener("scroll", () => {
-    if (dragging) return;
-    window.clearTimeout(scrollTimer);
-    scrollTimer = window.setTimeout(() => selectIndex(nearestIndex()), 120);
+    if (!dragging) scheduleWave();
   });
 
   nodes.forEach((node, index) => {
@@ -156,9 +163,6 @@
       if (!moved) selectIndex(index);
     });
   });
-
-  previous.addEventListener("click", () => selectIndex(selectedIndex - 1));
-  next.addEventListener("click", () => selectIndex(selectedIndex + 1));
 
   viewport.addEventListener("keydown", (event) => {
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;

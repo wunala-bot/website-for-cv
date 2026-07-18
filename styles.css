@@ -610,51 +610,10 @@ a.product-card:hover {
 }
 
 .journey-explorer {
-  margin: 0 auto 80px;
+  margin: 0 auto 48px;
   overflow: hidden;
 }
 
-.journey-timeline-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: min(1040px, calc(100% - 44px));
-  margin: 0 auto;
-  padding: 30px 0 10px;
-  color: var(--muted);
-}
-
-.journey-timeline-heading p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.5;
-}
-
-.timeline-controls {
-  display: flex;
-  gap: 8px;
-}
-
-.timeline-controls button {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  color: var(--ink);
-  background: #fff;
-  font-size: 17px;
-  cursor: pointer;
-}
-
-.timeline-controls button:hover {
-  border-color: rgba(0, 113, 227, 0.35);
-  color: var(--blue);
-}
-
-.timeline-controls button:focus-visible,
 .timeline-node:focus-visible,
 .timeline-viewport:focus-visible {
   outline: 2px solid var(--blue);
@@ -665,11 +624,10 @@ a.product-card:hover {
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;
-  height: 144px;
+  height: 104px;
   cursor: grab;
   scrollbar-width: none;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
   touch-action: pan-y;
 }
 
@@ -679,8 +637,6 @@ a.product-card:hover {
 
 .timeline-viewport.is-dragging {
   cursor: grabbing;
-  scroll-behavior: auto;
-  scroll-snap-type: none;
 }
 
 .timeline-track {
@@ -688,15 +644,15 @@ a.product-card:hover {
   display: flex;
   width: max-content;
   min-width: 100%;
-  height: 124px;
-  padding: 0 calc(50vw - 80px);
+  height: 88px;
+  padding: 0 calc(50vw - 66px);
 }
 
 .timeline-wave {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 124px;
+  height: 88px;
   overflow: visible;
   pointer-events: none;
 }
@@ -719,8 +675,8 @@ a.product-card:hover {
   --node-scale: 1;
   position: relative;
   z-index: 1;
-  flex: 0 0 160px;
-  height: 124px;
+  flex: 0 0 132px;
+  height: 88px;
   padding: 0;
   border: 0;
   color: var(--muted);
@@ -729,13 +685,13 @@ a.product-card:hover {
   cursor: pointer;
   scroll-snap-align: center;
   transform: translateY(var(--node-lift)) scale(var(--node-scale));
-  transform-origin: 50% 64px;
+  transform-origin: 50% 45px;
   transition: color 180ms ease, transform 180ms ease;
 }
 
 .timeline-year {
   position: absolute;
-  top: 18px;
+  top: 8px;
   left: 50%;
   font-size: 14px;
   font-weight: 650;
@@ -745,7 +701,7 @@ a.product-card:hover {
 
 .timeline-dot {
   position: absolute;
-  top: 59px;
+  top: 41px;
   left: 50%;
   width: 10px;
   height: 10px;
@@ -773,7 +729,7 @@ a.product-card:hover {
 }
 
 .journey-panel {
-  padding: 54px 0 20px;
+  padding: 34px 0 16px;
   text-align: center;
 }
 
@@ -1110,31 +1066,16 @@ a.product-card:hover {
   }
 
   .journey-explorer {
-    margin-bottom: 56px;
-  }
-
-  .journey-timeline-heading {
-    width: calc(100% - 40px);
-    padding-top: 24px;
-  }
-
-  .journey-timeline-heading p {
-    max-width: 220px;
-    font-size: 12px;
-  }
-
-  .timeline-controls button {
-    width: 32px;
-    height: 32px;
+    margin-bottom: 36px;
   }
 
   .timeline-track {
-    padding-right: calc(50vw - 70px);
-    padding-left: calc(50vw - 70px);
+    padding-right: calc(50vw - 56px);
+    padding-left: calc(50vw - 56px);
   }
 
   .timeline-node {
-    flex-basis: 140px;
+    flex-basis: 112px;
   }
 
   .journey-panels {
@@ -1142,7 +1083,7 @@ a.product-card:hover {
   }
 
   .journey-panel {
-    padding-top: 42px;
+    padding-top: 30px;
   }
 
   .detail-hero {
