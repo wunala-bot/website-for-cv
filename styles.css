@@ -609,6 +609,218 @@ a.product-card:hover {
   line-height: 1.6;
 }
 
+.journey-explorer {
+  margin: 0 auto 80px;
+  overflow: hidden;
+}
+
+.journey-timeline-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(1040px, calc(100% - 44px));
+  margin: 0 auto;
+  padding: 30px 0 10px;
+  color: var(--muted);
+}
+
+.journey-timeline-heading p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.timeline-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.timeline-controls button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--ink);
+  background: #fff;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.timeline-controls button:hover {
+  border-color: rgba(0, 113, 227, 0.35);
+  color: var(--blue);
+}
+
+.timeline-controls button:focus-visible,
+.timeline-node:focus-visible,
+.timeline-viewport:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.timeline-viewport {
+  position: relative;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 144px;
+  cursor: grab;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  touch-action: pan-y;
+}
+
+.timeline-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-viewport.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+}
+
+.timeline-track {
+  position: relative;
+  display: flex;
+  width: max-content;
+  min-width: 100%;
+  height: 124px;
+  padding: 0 calc(50vw - 80px);
+}
+
+.timeline-wave {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 124px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.timeline-wave path {
+  fill: none;
+  stroke: rgba(29, 29, 31, 0.22);
+  stroke-linecap: round;
+  stroke-width: 1.5;
+  transition: stroke 180ms ease, stroke-width 180ms ease;
+}
+
+.timeline-viewport:is(:hover, .is-dragging) .timeline-wave path {
+  stroke: rgba(0, 113, 227, 0.58);
+  stroke-width: 2.5;
+}
+
+.timeline-node {
+  --node-lift: 0px;
+  --node-scale: 1;
+  position: relative;
+  z-index: 1;
+  flex: 0 0 160px;
+  height: 124px;
+  padding: 0;
+  border: 0;
+  color: var(--muted);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  scroll-snap-align: center;
+  transform: translateY(var(--node-lift)) scale(var(--node-scale));
+  transform-origin: 50% 64px;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.timeline-year {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1;
+  transform: translateX(-50%);
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 59px;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #99999f;
+  box-shadow: 0 0 0 1px rgba(29, 29, 31, 0.18);
+  transform: translate(-50%, -50%);
+  transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.timeline-node.is-selected {
+  color: var(--ink);
+}
+
+.timeline-node.is-selected .timeline-dot {
+  background: var(--blue);
+  box-shadow: 0 0 0 5px rgba(0, 113, 227, 0.12);
+}
+
+.journey-panels {
+  width: min(760px, calc(100% - 44px));
+  margin: 0 auto;
+  border-top: 1px solid var(--line);
+}
+
+.journey-panel {
+  padding: 54px 0 20px;
+  text-align: center;
+}
+
+.journey-panel[hidden] {
+  display: none;
+}
+
+.journey-panel.is-active {
+  animation: journey-panel-in 260ms ease both;
+}
+
+.journey-panel h2 {
+  margin-bottom: 16px;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.08;
+}
+
+.journey-panel > p:not(.kicker) {
+  max-width: 640px;
+  margin: 0 auto 26px;
+  color: var(--muted);
+  font-size: clamp(18px, 2vw, 21px);
+  line-height: 1.6;
+}
+
+.journey-panel a,
+.journey-status {
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.journey-status {
+  color: var(--muted);
+}
+
+@keyframes journey-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .detail-hero {
   padding-top: 50px;
   padding-bottom: 48px;
@@ -897,6 +1109,42 @@ a.product-card:hover {
     padding: 38px 36px;
   }
 
+  .journey-explorer {
+    margin-bottom: 56px;
+  }
+
+  .journey-timeline-heading {
+    width: calc(100% - 40px);
+    padding-top: 24px;
+  }
+
+  .journey-timeline-heading p {
+    max-width: 220px;
+    font-size: 12px;
+  }
+
+  .timeline-controls button {
+    width: 32px;
+    height: 32px;
+  }
+
+  .timeline-track {
+    padding-right: calc(50vw - 70px);
+    padding-left: calc(50vw - 70px);
+  }
+
+  .timeline-node {
+    flex-basis: 140px;
+  }
+
+  .journey-panels {
+    width: calc(100% - 40px);
+  }
+
+  .journey-panel {
+    padding-top: 42px;
+  }
+
   .detail-hero {
     padding-top: 32px;
     padding-bottom: 36px;
@@ -943,6 +1191,20 @@ a.product-card:hover {
   .site-footer {
     min-height: 48px;
     padding: 0 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline-viewport,
+  .timeline-node,
+  .timeline-wave path,
+  .timeline-dot {
+    scroll-behavior: auto;
+    transition: none;
+  }
+
+  .journey-panel.is-active {
+    animation: none;
   }
 }
 
