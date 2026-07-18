@@ -487,6 +487,10 @@ a.product-card:hover {
   margin: 0 auto 14px;
 }
 
+.thinking-page .note-board {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .secondary-page .case-board,
 .secondary-page .note-board,
 .secondary-page .page-story {
@@ -981,21 +985,18 @@ a.product-card:hover {
 
 .about-section {
   display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 28px;
-  padding: 48px 0;
+  grid-template-columns: minmax(180px, 0.42fr) minmax(0, 1fr);
+  gap: 56px;
+  padding: 52px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.about-section > span {
-  padding-top: 7px;
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 700;
+.about-section > div {
+  display: contents;
 }
 
 .about-section h2 {
-  margin-bottom: 14px;
+  margin: 0;
   font-size: 28px;
   line-height: 1.2;
 }
@@ -1108,6 +1109,10 @@ a.product-card:hover {
   .notes-section,
   .case-row,
   .note-board {
+    grid-template-columns: 1fr;
+  }
+
+  .thinking-page .note-board {
     grid-template-columns: 1fr;
   }
 
@@ -1372,9 +1377,14 @@ a.product-card:hover {
   }
 
   .about-section {
-    grid-template-columns: 34px 1fr;
-    gap: 14px;
+    grid-template-columns: 1fr;
+    gap: 16px;
     padding: 36px 0;
+  }
+
+  .about-section > div {
+    display: grid;
+    gap: 16px;
   }
 
   .about-section h2 {
