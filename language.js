@@ -19,8 +19,8 @@ const translations = {
     thinkingCard: "关于工作、职业，也关于生活。",
     photographyCard: "分享我所看见并想要留下的瞬间。",
     lifeKicker: "生活记录",
-    photographyIntro: "这里会收集我拍下的风景、城市和生活片段。",
-    photographyPlaceholder: "照片正在整理中。",
+    photographyCanvasLabel: "照片画布",
+    closePhoto: "关闭照片",
     frameworkKicker: "案例展开方式",
     frameworkTitle: "每段经历，都沿着五个问题展开。",
     backgroundTitle: "背景",
@@ -33,7 +33,6 @@ const translations = {
     resultText: "指标、效率、体验或业务有什么变化？",
     reviewTitle: "复盘",
     reviewText: "这件事沉淀了什么方法论？",
-    experiencesIntro: "这里记录职业选择，也记录生活中值得被记住的重要章节。",
     experienceOne: "经历一",
     experienceOneText: "这一段经历的核心主题、负责范围、代表项目和关键结果会放在这里。",
     experienceTwo: "经历二",
@@ -74,7 +73,6 @@ const translations = {
     caseThreeChallenge: "这里说明最关键的不确定性、约束条件和推进阻力。",
     caseThreeSolution: "这里展示分析过程、方案选择和具体执行方式。",
     caseThreeResult: "这里呈现最终结果，以及它为团队或业务带来的变化。",
-    thinkingIntro: "这里会逐步放入复盘、判断和方法论，让网站从展示页变成长期的个人展示面。",
     draft: "草稿",
     thinkingOne: "我如何判断一个项目是否值得做",
     thinkingTwo: "AI 进入工作流后，产品人的价值会怎么变化",
@@ -100,8 +98,8 @@ const translations = {
     thinkingCard: "Notes on work, career, and life.",
     photographyCard: "Moments I noticed and wanted to keep.",
     lifeKicker: "Life, Observed",
-    photographyIntro: "A collection of landscapes, cities, and moments from everyday life.",
-    photographyPlaceholder: "Photographs are being curated.",
+    photographyCanvasLabel: "Photography canvas",
+    closePhoto: "Close photo",
     frameworkKicker: "How Each Story Unfolds",
     frameworkTitle: "Every experience follows five questions.",
     backgroundTitle: "Context",
@@ -114,7 +112,6 @@ const translations = {
     resultText: "What changed across metrics, efficiency, experience, or the business?",
     reviewTitle: "Reflection",
     reviewText: "What principles and methods came out of the work?",
-    experiencesIntro: "Career choices and meaningful chapters from life, gathered in one journey.",
     experienceOne: "Experience One",
     experienceOneText: "The central theme, scope, representative projects, and key outcomes of this chapter will live here.",
     experienceTwo: "Experience Two",
@@ -155,7 +152,6 @@ const translations = {
     caseThreeChallenge: "The key uncertainties, constraints, and resistance encountered along the way.",
     caseThreeSolution: "The analysis, choices, and execution behind the final approach.",
     caseThreeResult: "The final outcome and the change it created for the team or business.",
-    thinkingIntro: "A growing collection of reflections, decisions, and methods that turns this portfolio into a long-term public record of my work.",
     draft: "Draft",
     thinkingOne: "How I decide whether a project is worth doing",
     thinkingTwo: "How AI changes the value of product work",
@@ -183,6 +179,7 @@ function setLanguage(language, persist = false) {
 
   document.title = dictionary.brandName;
   if (persist) localStorage.setItem("portfolio-language", language);
+  window.dispatchEvent(new CustomEvent("portfolio-language-change", { detail: { language } }));
 }
 
 const savedLanguage = localStorage.getItem("portfolio-language");

@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>读读说明书</title>
-    <link rel="stylesheet" href="styles.css?v=20260718-1">
-    <script src="language.js?v=20260715-4" defer></script>
+    <link rel="preload" href="assets/photography-demo-atlas.png" as="image">
+    <link rel="stylesheet" href="styles.css?v=20260718-4">
+    <script src="language.js?v=20260718-4" defer></script>
+    <script src="photography.js?v=20260718-1" defer></script>
   </head>
   <body class="secondary-page photography-page">
     <header class="site-header">
@@ -20,17 +22,26 @@
       </nav>
     </header>
 
-    <main>
-      <section class="page-hero photography-hero">
+    <main class="photography-main">
+      <section class="photography-heading">
         <p class="kicker" data-i18n="lifeKicker">生活记录</p>
         <h1 data-i18n="navPhotography">摄影</h1>
-        <p class="hero-text" data-i18n="photographyIntro">这里会收集我拍下的风景、城市和生活片段。</p>
       </section>
 
-      <section class="photography-placeholder">
-        <p data-i18n="photographyPlaceholder">照片正在整理中。</p>
+      <section class="photo-window" data-photo-window aria-label="照片画布" data-i18n-aria-label="photographyCanvasLabel">
+        <div class="photo-canvas" data-photo-canvas></div>
+        <div class="photo-window-vignette" aria-hidden="true"></div>
       </section>
     </main>
+
+    <dialog class="photo-dialog" data-photo-dialog>
+      <button class="photo-dialog-close" type="button" data-photo-close data-i18n-aria-label="closePhoto" aria-label="关闭照片">×</button>
+      <div class="photo-dialog-image" data-photo-dialog-image role="img"></div>
+      <div class="photo-dialog-meta">
+        <p class="kicker" data-photo-dialog-location></p>
+        <p data-photo-dialog-date></p>
+      </div>
+    </dialog>
     <footer class="site-footer">
       <p data-i18n="footerCopyright">© 2026 读读说明书</p>
     </footer>

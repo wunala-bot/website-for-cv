@@ -464,7 +464,10 @@ a.product-card:hover {
 }
 
 .experiences-page .page-hero,
+.thinking-page .page-hero,
 .detail-page .page-hero {
+  display: grid;
+  justify-items: center;
   text-align: center;
 }
 
@@ -502,24 +505,143 @@ a.product-card:hover {
   background: var(--subtle);
 }
 
-.photography-page .page-hero {
+.photography-main {
+  display: grid;
+  grid-template-rows: auto minmax(520px, 1fr);
+  min-height: calc(100svh - 100px);
+}
+
+.photography-heading {
+  display: grid;
+  justify-items: center;
+  padding: 32px 22px 24px;
   text-align: center;
 }
 
-.photography-page .page-hero .hero-text {
-  margin-right: auto;
-  margin-left: auto;
+.photography-heading .kicker {
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
-.photography-placeholder {
+.photography-heading h1 {
+  margin: 0;
+  font-size: clamp(36px, 4vw, 48px);
+  line-height: 1;
+}
+
+.photo-window {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #f5f5f7;
+  cursor: grab;
+  touch-action: none;
+}
+
+.photo-window.is-dragging {
+  cursor: grabbing;
+}
+
+.photo-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.photo-window-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 120;
+  box-shadow: inset 0 0 100px rgba(29, 29, 31, 0.16);
+  pointer-events: none;
+}
+
+.photo-tile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(150px, 18vw, 260px);
+  aspect-ratio: 1.38;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 6px;
+  background-color: #d9d9de;
+  background-image: url("assets/photography-demo-atlas.png");
+  background-position: var(--atlas-x) var(--atlas-y);
+  background-size: 400% 300%;
+  box-shadow: 0 14px 38px rgba(29, 29, 31, 0.18);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.photo-tile:hover {
+  box-shadow: 0 18px 46px rgba(29, 29, 31, 0.24);
+}
+
+.photo-tile:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.photo-dialog {
+  width: min(920px, calc(100% - 40px));
+  max-width: none;
+  padding: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.32);
+}
+
+.photo-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.photo-dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
   display: grid;
   place-items: center;
-  width: min(1040px, calc(100% - 44px));
-  min-height: 360px;
-  margin: 0 auto 72px;
-  background: var(--subtle);
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.58);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.photo-dialog-image {
+  width: 100%;
+  aspect-ratio: 1.55;
+  border-radius: 6px 6px 0 0;
+  background-color: #d9d9de;
+  background-image: url("assets/photography-demo-atlas.png");
+  background-position: var(--atlas-x) var(--atlas-y);
+  background-size: 400% 300%;
+}
+
+.photo-dialog-meta {
+  padding: 20px 24px 22px;
+}
+
+.photo-dialog-meta .kicker {
+  margin-bottom: 4px;
+  color: var(--ink);
+}
+
+.photo-dialog-meta > p:last-child {
+  margin: 0;
   color: var(--muted);
-  font-size: 17px;
+  font-size: 14px;
 }
 
 .site-footer {
@@ -624,58 +746,51 @@ a.product-card:hover {
   position: relative;
   overflow-x: auto;
   overflow-y: hidden;
-  height: 104px;
-  cursor: grab;
+  width: min(920px, calc(100% - 44px));
+  height: 96px;
+  margin: 0 auto;
   scrollbar-width: none;
   overscroll-behavior-x: contain;
-  touch-action: pan-y;
 }
 
 .timeline-viewport::-webkit-scrollbar {
   display: none;
 }
 
-.timeline-viewport.is-dragging {
-  cursor: grabbing;
-}
-
 .timeline-track {
   position: relative;
   display: flex;
-  width: max-content;
+  width: 100%;
   min-width: 100%;
   height: 88px;
-  padding: 0 calc(50vw - 66px);
 }
 
-.timeline-wave {
+.timeline-track::before,
+.timeline-progress {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 88px;
-  overflow: visible;
+  top: 47px;
+  height: 1px;
   pointer-events: none;
 }
 
-.timeline-wave path {
-  fill: none;
-  stroke: rgba(29, 29, 31, 0.22);
-  stroke-linecap: round;
-  stroke-width: 1.5;
-  transition: stroke 180ms ease, stroke-width 180ms ease;
+.timeline-track::before {
+  right: var(--timeline-edge, calc(100% / 12));
+  left: var(--timeline-edge, calc(100% / 12));
+  content: "";
+  background: rgba(29, 29, 31, 0.18);
 }
 
-.timeline-viewport:is(:hover, .is-dragging) .timeline-wave path {
-  stroke: rgba(0, 113, 227, 0.58);
-  stroke-width: 2.5;
+.timeline-progress {
+  left: var(--progress-start, 0);
+  width: var(--progress-width, 0);
+  background: var(--blue);
+  transition: width 420ms cubic-bezier(0.22, 1, 0.36, 1), left 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .timeline-node {
-  --node-lift: 0px;
-  --node-scale: 1;
   position: relative;
   z-index: 1;
-  flex: 0 0 132px;
+  flex: 1 0 0;
   height: 88px;
   padding: 0;
   border: 0;
@@ -683,10 +798,12 @@ a.product-card:hover {
   background: transparent;
   font: inherit;
   cursor: pointer;
-  scroll-snap-align: center;
-  transform: translateY(var(--node-lift)) scale(var(--node-scale));
-  transform-origin: 50% 45px;
-  transition: color 180ms ease, transform 180ms ease;
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.timeline-node:hover {
+  color: var(--ink);
+  transform: translateY(-2px);
 }
 
 .timeline-year {
@@ -707,10 +824,10 @@ a.product-card:hover {
   height: 10px;
   border: 2px solid #fff;
   border-radius: 50%;
-  background: #99999f;
+  background: #fff;
   box-shadow: 0 0 0 1px rgba(29, 29, 31, 0.18);
   transform: translate(-50%, -50%);
-  transition: background 180ms ease, box-shadow 180ms ease;
+  transition: background 220ms ease, box-shadow 220ms ease, transform 220ms ease;
 }
 
 .timeline-node.is-selected {
@@ -719,7 +836,8 @@ a.product-card:hover {
 
 .timeline-node.is-selected .timeline-dot {
   background: var(--blue);
-  box-shadow: 0 0 0 5px rgba(0, 113, 227, 0.12);
+  box-shadow: 0 0 0 6px rgba(0, 113, 227, 0.12), 0 0 22px rgba(0, 113, 227, 0.22);
+  transform: translate(-50%, -50%) scale(1.25);
 }
 
 .journey-panels {
@@ -1038,8 +1156,7 @@ a.product-card:hover {
 
   .story-section,
   .case-board,
-  .note-board,
-  .photography-placeholder {
+  .note-board {
     width: calc(100% - 40px);
   }
 
@@ -1070,12 +1187,18 @@ a.product-card:hover {
   }
 
   .timeline-track {
+    width: max-content;
+    min-width: 100%;
     padding-right: calc(50vw - 56px);
     padding-left: calc(50vw - 56px);
   }
 
   .timeline-node {
-    flex-basis: 112px;
+    flex: 0 0 112px;
+  }
+
+  .timeline-viewport {
+    width: 100%;
   }
 
   .journey-panels {
@@ -1084,6 +1207,38 @@ a.product-card:hover {
 
   .journey-panel {
     padding-top: 30px;
+  }
+
+  .photography-main {
+    grid-template-rows: auto minmax(500px, 1fr);
+  }
+
+  .photography-heading {
+    padding: 26px 20px 20px;
+  }
+
+  .photography-heading h1 {
+    font-size: 36px;
+  }
+
+  .photo-window {
+    min-height: 500px;
+  }
+
+  .photo-window-vignette {
+    box-shadow: inset 0 0 56px rgba(29, 29, 31, 0.14);
+  }
+
+  .photo-tile {
+    width: 150px;
+  }
+
+  .photo-dialog {
+    width: calc(100% - 28px);
+  }
+
+  .photo-dialog-image {
+    aspect-ratio: 1.1;
   }
 
   .detail-hero {
@@ -1138,7 +1293,7 @@ a.product-card:hover {
 @media (prefers-reduced-motion: reduce) {
   .timeline-viewport,
   .timeline-node,
-  .timeline-wave path,
+  .timeline-progress,
   .timeline-dot {
     scroll-behavior: auto;
     transition: none;
