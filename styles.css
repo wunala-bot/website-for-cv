@@ -259,10 +259,16 @@ h1 {
 }
 
 .home-section-grid .product-copy h2 {
+  display: grid;
+  place-items: end center;
+  min-height: 1.15em;
   font-size: clamp(32px, 4vw, 48px);
 }
 
 .home-section-grid .product-copy p:not(.kicker) {
+  display: grid;
+  place-items: start center;
+  min-height: 3em;
   font-size: clamp(17px, 1.7vw, 21px);
 }
 
@@ -843,11 +849,13 @@ a.product-card:hover {
   }
 
   .home-section-grid .product-copy h2 {
+    min-height: 1.15em;
     margin-bottom: 10px;
     font-size: 28px;
   }
 
   .home-section-grid .product-copy p:not(.kicker) {
+    min-height: 2.8em;
     font-size: 15px;
     line-height: 1.4;
   }
