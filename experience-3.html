@@ -4,15 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>读读说明书</title>
-    <link rel="stylesheet" href="styles.css?v=20260718-1">
-    <script src="language.js?v=20260715-4" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260718-6">
+    <script src="language.js?v=20260718-6" defer></script>
+    <script src="articles.js?v=20260718-1" defer></script>
   </head>
-  <body class="secondary-page detail-page">
+  <body class="secondary-page article-detail-page">
     <header class="site-header">
       <a class="brand" href="index.html" data-i18n="brandName" data-i18n-aria-label="homeLabel">读读说明书</a>
       <nav class="nav" data-i18n-aria-label="navLabel" aria-label="主导航">
-        <a href="experiences.html" aria-current="page" data-i18n="navExperiences">旅程</a>
-        <a href="thinking.html" data-i18n="navThinking">思考</a>
+        <a href="experiences.html" data-article-nav="journey" data-i18n="navExperiences">旅程</a>
+        <a href="thinking.html" data-article-nav="thinking" data-i18n="navThinking">思考</a>
         <a href="photography.html" data-i18n="navPhotography">摄影</a>
         <button class="language-toggle" type="button" data-language-toggle aria-label="切换至英文">
           <span data-language-option="zh">中</span><span data-language-option="en">EN</span>
@@ -21,32 +22,18 @@
     </header>
 
     <main>
-      <section class="page-hero detail-hero">
-        <a class="back-link" href="experiences.html" data-i18n="backToExperiences">返回经历</a>
-        <p class="kicker" data-i18n="caseThreeKicker">案例 03</p>
-        <h1 data-i18n="experienceThree">经历三</h1>
-        <p class="hero-text" data-i18n="caseThreeIntro">这一页将完整呈现第三段经历中最重要的项目与变化。</p>
-      </section>
-
-      <div class="detail-content">
-        <section class="detail-section">
-          <div><span>01</span><h2 data-i18n="backgroundTitle">背景</h2></div>
-          <p data-i18n="caseThreeBackground">这里说明第三段经历所处的环境、目标，以及项目最初的切入点。</p>
-        </section>
-        <section class="detail-section">
-          <div><span>02</span><h2 data-i18n="challengeTitle">挑战</h2></div>
-          <p data-i18n="caseThreeChallenge">这里说明最关键的不确定性、约束条件和推进阻力。</p>
-        </section>
-        <section class="detail-section">
-          <div><span>03</span><h2 data-i18n="solutionTitle">方案</h2></div>
-          <p data-i18n="caseThreeSolution">这里展示分析过程、方案选择和具体执行方式。</p>
-        </section>
-        <section class="detail-section">
-          <div><span>04</span><h2 data-i18n="resultTitle">结果</h2></div>
-          <p data-i18n="caseThreeResult">这里呈现最终结果，以及它为团队或业务带来的变化。</p>
-        </section>
-      </div>
+      <article class="article-reader" data-article-root>
+        <header class="article-header">
+          <a class="article-back" href="experiences.html" data-article-back>← 返回旅程</a>
+          <p class="article-category" data-article-category>旅程 · 2024</p>
+          <h1 data-article-title>重要转折</h1>
+          <p class="article-dek" data-article-dek>一次值得记住的变化，让职业与生活都走向了新的方向。</p>
+          <time class="article-date" data-article-date datetime="2024">2024</time>
+        </header>
+        <div class="article-body" data-article-body></div>
+      </article>
     </main>
+
     <footer class="site-footer">
       <p data-i18n="footerCopyright">© 2026 读读说明书</p>
     </footer>

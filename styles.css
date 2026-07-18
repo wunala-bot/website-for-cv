@@ -895,54 +895,77 @@ a.product-card:hover {
   }
 }
 
-.detail-hero {
-  padding-top: 50px;
-  padding-bottom: 48px;
+.article-reader {
+  width: min(760px, calc(100% - 44px));
+  margin: 0 auto;
 }
 
-.back-link {
-  display: block;
+.article-header {
+  padding: 52px 0 46px;
+  border-bottom: 1px solid var(--line);
+}
+
+.article-back {
+  display: inline-block;
   margin-bottom: 72px;
   color: var(--blue);
   font-size: 14px;
   font-weight: 600;
-  text-align: left;
 }
 
-.detail-content {
-  width: min(760px, calc(100% - 44px));
-  margin: 0 auto 80px;
-}
-
-.detail-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 26px;
-  padding: 68px 0;
-  border-bottom: 1px solid var(--line);
-  text-align: center;
-}
-
-.detail-section span {
-  display: block;
-  margin-bottom: 18px;
-  color: var(--blue);
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.detail-section h2 {
-  margin-bottom: 0;
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.12;
-}
-
-.detail-section > p {
-  max-width: 680px;
-  margin: 0 auto;
+.article-category,
+.article-date {
   color: var(--muted);
-  font-size: clamp(18px, 2vw, 21px);
-  line-height: 1.65;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.article-category {
+  margin-bottom: 16px;
+}
+
+.article-header h1 {
+  max-width: 760px;
+  margin-bottom: 22px;
+  font-size: clamp(42px, 6vw, 68px);
+  line-height: 1.08;
+}
+
+.article-dek {
+  max-width: 700px;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: clamp(19px, 2.2vw, 23px);
+  line-height: 1.55;
+}
+
+.article-body {
+  padding: 48px 0 96px;
+}
+
+.article-body p,
+.article-body blockquote {
+  font-size: 19px;
+  line-height: 1.85;
+}
+
+.article-body p {
+  margin-bottom: 28px;
+}
+
+.article-body h2 {
+  margin: 56px 0 20px;
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.article-body blockquote {
+  margin: 46px 0;
+  padding: 6px 0 6px 24px;
+  border-left: 3px solid var(--blue);
+  color: var(--ink);
+  font-size: 24px;
+  font-weight: 600;
 }
 
 .page-story {
@@ -1010,6 +1033,26 @@ a.product-card:hover {
 
 .note-board h2 {
   font-size: clamp(24px, 3vw, 34px);
+}
+
+.note-link {
+  display: block;
+  height: 100%;
+}
+
+.note-link article {
+  height: 100%;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.note-link:hover article {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.note-link:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
 }
 
 @media (max-width: 900px) {
@@ -1241,24 +1284,40 @@ a.product-card:hover {
     aspect-ratio: 1.1;
   }
 
-  .detail-hero {
-    padding-top: 32px;
-    padding-bottom: 36px;
+  .article-reader {
+    width: calc(100% - 40px);
   }
 
-  .back-link {
+  .article-header {
+    padding: 32px 0 36px;
+  }
+
+  .article-back {
     margin-bottom: 52px;
   }
 
-  .detail-content {
-    width: calc(100% - 40px);
-    margin-bottom: 56px;
+  .article-header h1 {
+    font-size: 38px;
   }
 
-  .detail-section {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 48px 0;
+  .article-body {
+    padding: 36px 0 72px;
+  }
+
+  .article-body p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .article-body h2 {
+    margin-top: 44px;
+    font-size: 27px;
+  }
+
+  .article-body blockquote {
+    margin: 36px 0;
+    padding-left: 18px;
+    font-size: 21px;
   }
 
   .page-story {
